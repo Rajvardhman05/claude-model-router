@@ -24,7 +24,8 @@ reasoning too.
 ## Routing table for delegated work
 
 Set the model on the subagent call (`model: haiku | sonnet | opus | fable`) or in the subagent's
-definition file.
+definition file. If a tier is not available on this account, use the next tier down (no `fable`
+means `opus`) and say so in one line.
 
 | The subagent's job | Model |
 |---|---|
@@ -44,7 +45,8 @@ Two guards on the table:
 - **Small models get work where mistakes are cheap to spot.** If a wrong answer would pass
   unnoticed (a judgment call, a subtle edit), keep it on the main model.
 
-Leave subagent effort at the model's default. Raise it only through the escalation ladder below.
+For a one-off subagent, leave effort at the model's default. Set it explicitly in only two
+cases, both below: climbing the escalation ladder, and a cheap-first retry over a checkable batch.
 
 ## When not to delegate at all
 
